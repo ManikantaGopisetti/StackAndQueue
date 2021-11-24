@@ -8,6 +8,12 @@ public class StackDemo {
 		s.push(30);
 		s.push(56);
 		s.displayStack();
+		s.peek();
+		s.pop();
+		s.pop();
+		s.pop();
+		s.displayStack();
 		s.size();
+		
 	}
 }
