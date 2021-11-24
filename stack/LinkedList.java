@@ -5,18 +5,24 @@ public class LinkedList {
 
 	public void insertFirst(int data) {
 		Node node = new Node(data);
-		node.next=head;
+		node.next = head;
 		head = node;
 	}
 
 	public void append(int data) {
 		Node currentNode = head;
+		if(head==null) {
+			head=new Node(data);
+			return;
+		}
+
 		while (currentNode.next != null) {
 			currentNode = currentNode.next;
 		}
 		Node node = new Node(data);
-		currentNode.next=node;
+		currentNode.next = node;
 	}
+
 
 	public void insertBetween(int first, int value) {
 		Node currentNode = head;
@@ -27,13 +33,13 @@ public class LinkedList {
 			}
 			currentNode = currentNode.next;
 		}
-		if(temp ==null) {
-			System.out.println("No node found with te value "+first);
+		if (temp == null) {
+			System.out.println("No node found with te value " + first);
 			return;
 		}
 		Node node = new Node(value);
 		node.next = temp.next;
-		temp.next=node;
+		temp.next = node;
 	}
 
 	public void pop() {
@@ -79,11 +85,15 @@ public class LinkedList {
 
 	public void displayLinkedList() {
 		Node currentNode = head;
-		while (currentNode != null) {
-			System.out.print(currentNode.key + "-->");
-			currentNode = currentNode.next;
+		if (currentNode == null) {
+			System.out.println("Empty");
+		} else {
+			while (currentNode != null) {
+				System.out.print(currentNode.key + "-->");
+				currentNode = currentNode.next;
+			}
+			System.out.println("\n");
 		}
-		System.out.println("\n");
 	}
 
 }
